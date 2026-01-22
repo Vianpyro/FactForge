@@ -34,7 +34,7 @@ Escape algorithmic echo chambers with a battle-tested foundation for intellectua
 
 1. **Clone & setup:**
    ```bash
-   git clone https://github.com/YOUR-USERNAME/factforge.git
+   git clone https://github.com/Vianpyro/FactForge.git
    cd factforge
    ```
 
