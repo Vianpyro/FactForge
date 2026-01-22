@@ -1,52 +1,89 @@
 # FactForge
 
-Welcome to the **FactForge** repository! This repository was generated from a template to get you started quickly.
+**FactForge** is a self-hostable, open-source Rust app delivering TikTok/Instagram-style infinite scrolls of politically neutral, fact-checked knowledge. Tired of biased news and unverified social media? Forge your own feed of verifiable facts from trusted sources like AP, Reuters, Britannica, and Our World in Data—perfect for you, your family, friends, and the world.
+
+## ✨ Why FactForge?
+
+Escape algorithmic echo chambers with a battle-tested foundation for intellectual social media. Built in Rust for performance and safety, FactForge pulls fresh, neutral content via free APIs/RSS, supports offline networks of self-hosted instances, and invites global contributions to truth.
+
+### 🎯 Key Features
+
+1. **🤖 Neutral Fact Feeds**
+   - Hourly cron pulls from AP, Reuters, Britannica, Wikidata, Our World in Data
+   - Image proxying (no hotlinking); short-form cards for easy scrolling
+   - Cross-verified claims via Google Fact Check Tools API
+
+2. **🔗 Self-Hostable & Resilient**
+   - Dockerized Rust backend; dev container ready
+   - P2P-ready for fact networks (future: offline sync)
+   - Single-server start, scales to federated instances
+
+3. **🛠️ Open-Source Collaboration**
+   - Rust + modern web stack; contribution-friendly
+   - Automated linting (clippy, rustfmt), CI/CD via GitHub Actions
+   - Branch validation, PR templates, rich labels
+
+4. **📱 Simple Intellectual UX**
+   - Infinite scroll of facts (science, history, stats, news)
+   - No ads, no bias—community-flagged via future notes
+   - Mobile-first like Instagram/TikTok
 
 ## 🚀 Getting Started
 
-To get started with this project:
+### Using This Template
 
-1. Clone the repository:
+1. **Clone & setup:**
    ```bash
-   git clone https://github.com/Vianpyro/FactForge.git
-   cd FactForge
+   git clone https://github.com/YOUR-USERNAME/factforge.git
+   cd factforge
    ```
-2. Install any dependencies (if applicable).
-3. Follow the instructions in the relevant documentation or project files to start working.
 
-## 📁 Project Structure
+3. **Run locally:**
+   ```bash
+   docker compose up  # Dev environment
+   # Visit localhost:8283 for your fact feed
+   ```
 
-The repository contains the following directories and files:
+### Quick Self-Host
 
-- `.devcontainer/` - Development container configuration for VS Code
-  - `devcontainer.json` - Dev container settings
-  - `Dockerfile` - Container image definition
-- `.github/` - GitHub-specific configurations
-  - `ISSUE_TEMPLATE/` - Issue templates (bug reports, feature requests)
-  - `pull_request_template.md` - Pull request template
-  - `workflows/` - GitHub Actions workflow files
-- `.vscode/` - VS Code workspace settings and tasks
-- `.dockerignore` - Docker build exclusions
-- `.gitattributes` - Git attributes configuration
-- `.gitignore` - Git ignore patterns
-- `README.md` - This file
+```bash
+# Production
+make build
+docker run -p 8283:8283 yourusername/factforge:latest
+```
 
-## 🛠 Features
+## 📁 What's Included
 
-- Initialized from a reusable template for quick setup.
-- Pre-configured workflows for automation and CI/CD.
-- Placeholder sections for documentation, testing, and development.
+- **Rust Workspace**: `src/` bin + lib; Cargo.toml with axum/tokio/serde
+- **`.devcontainer/`**: Full-stack dev (Rust, Node for frontend if needed)
+- **`.github/workflows/`**: Linting, tests, Docker builds, releases
+- **Templates**: Issues/PRs with checklists for fact-source PRs
 
-## 📖 Documentation
+## 🔧 Customization
 
-Check the project files and comments for guidance. You can expand this section as your project grows.
+- **Add Sources**: Edit `sources.toml` → AP RSS, Wikidata SPARQL
+- **Rust Tweaks**: `Cargo.toml` for crates; clippy enforces safety
+- **Deploy**: Railway/Fly.io/Hetzner; scale to P2P later
+
+**Branch Convention**: `feature/fact-source-ap` | `fix/bias-check` | `chore/dockerfile`
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to open issues, submit pull requests, or suggest improvements.
+1. Fork → `feature/your-idea`
+2. Add neutral sources with verification
+3. PR with fact samples + bias rating (AllSides/Ad Fontes)
+4. Follow Rust style; tests required
+
+**Guidelines**: Only verifiable, neutral content. No opinions. MIT License.
 
 ## 📝 License
 
-Specify your license here (if any). For example: MIT, Apache 2.0, etc.
+MIT – Permissive for self-hosting/networks. See [LICENSE](LICENSE).
 
-Happy coding! 🎉
+## 🐛 Troubleshooting
+
+- **Cron fails**: Check API quotas (NewsAPI free tier)
+- **Rust errors**: `cargo clippy --fix`
+- **Bias flags**: Cross-check AllSides; PR fixes
+
+**Forge facts, not fights. Join the neutral network!** 🚀
