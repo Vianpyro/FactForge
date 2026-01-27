@@ -30,7 +30,7 @@ Escape algorithmic echo chambers with a battle-tested foundation for intellectua
 
 ## 🚀 Getting Started
 
-### Using This Template
+### Using This Repo
 
 1. **Clone & setup:**
    ```bash
